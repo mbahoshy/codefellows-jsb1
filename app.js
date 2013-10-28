@@ -76,6 +76,18 @@ app.get("/contacts", function(req, res) {
   res.render("contactlist", {contacts: db});
 });
 
+app.post("/contactSearch", function(req, res){
+  var term = req.body.term;
+  var condition = req.body.condition;
+  
+  record = _.findWhere(db, {[condition]: term});
+  if (record) {
+  console.log("found");  
+  }
+  
+
+});
+
 app.get("/contacts/:guid", function(req, res) {
   var guid = req.param("guid"),
       record = _.findWhere(db, {guid: guid});

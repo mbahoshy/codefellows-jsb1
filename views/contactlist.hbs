@@ -22,6 +22,18 @@
   </head>
 
   <body>
+    <form action='/contactSearch' method='post'>
+      <input class='find' type='text' name='term'  />
+      
+      <select name='condition'>
+        <option value='lastName'>Last Name</option>
+        <option value='firstName'>First Name</option>
+        <option value='nickname'>Nickname</option>
+        <option value='company'>Company</option>
+      </select>
+      <input class='submit' type='submit' value='Find'  />
+
+    </form>
     <table class="table table-hover">
       <thead>
         <tr>
