@@ -7,16 +7,17 @@
     
     <script src="https://raw.github.com/wycats/handlebars.js/1.0.0/dist/handlebars.js" type="text/javascript"></script>
 
-    <script src='bower_components/jquery/jquery.js'></script>
+    <script src='/bower_components/jquery/jquery.js'></script>
+    <script src='/bower_components/raphael/raphael.js'></script>
 
     <!-- Bring In Bootstrap -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
 
 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Application Styles and Scripts -->
     <link rel="stylesheet" href="/jsbootcamp.css">
@@ -37,23 +38,13 @@
         makeContactRowClickable();
         $.getJSON( "gjson", function(data) {
           sortResults (data, "firstName", true);
-          //var source = document.getElementById("sort-template").textContent;
-          //var template = Handlebars.compile(source);
-          //var wrapper  = {objects: an_array};
+          
 
           var source   = $("#sort-template").html();
           var template = Handlebars.compile(source);
           $("body").append( template(data));
 
-         // var html = template(data);
 
-          //var html = template(data[0]);
-         // $('#tester').append(html);
-          //document.body.innerHTML = html;
-          /*var source   = $("#sort-template").html();
-          var template = Handlebars.compile(source);
-          var context = data;
-          var html    = template(context);*/
           console.log("success");
           console.log(data[1].lastName);
         });
