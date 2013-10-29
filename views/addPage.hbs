@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code Fellows Contact Manager</title>
+
+    <!-- Bring In jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- Bring In Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Application Styles and Scripts -->
+    <link rel="stylesheet" href="/jsbootcamp.css">
+  </head>
+
+  <body>
+    <div id='header'>
+      <h1>Code Fellows Contact Manager</h1>
+    </div>
+    <div>
+      <form method="POST" class = 'add' action='/add' >
+        First Name:<br/>
+        <input type='text' name='firstName' /><br/>
+        Last Name:<br/>
+        <input type='text' name='lastName'  /><br/>
+        Nickname:<br/>
+        <input type='text' name='nickname' /><br/>
+        Company:<br/>
+        <input type='text' name='company'  /><br/>
+        Email:<br/>
+        <input type='text' name='email'  /><br/><br/>
+
+        <input class='submit' type='submit' value='Add' />
+      </form>
+    </div>
+  </body>
+</html>

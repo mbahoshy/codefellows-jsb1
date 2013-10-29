@@ -1,0 +1,21 @@
+{
+  "name": "2jsbootcamp1",
+  "version": "0.0.0",
+  "homepage": "https://github.com/codefellows/jsbootcamp1",
+  "authors": [
+    "mbahoshy <mbahoshy@gmail.com>"
+  ],
+  "description": "first bootcamp proj",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  }
+}

@@ -1,3 +1,35 @@
 body {
   padding: 1em 1.5em 1em 1.5em;
+  background: url(bground.png) repeat center center fixed;
+  width:900px;
+  margin-right: auto;
+  margin-left: auto;
+  color:#fff;
+}
+
+td {
+	background-color: grey;
+}
+
+th {
+	/*background-color: #fff;*/
+}
+
+#header h1 {
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}
+
+ul {
+	color:#fff;
+}
+
+
+form .find {
+	width:700px;
+}
+
+.add {
+	/*background-color: grey;*/
 }

@@ -5,23 +5,78 @@
 
     <!-- Bring In jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://raw.github.com/wycats/handlebars.js/1.0.0/dist/handlebars.js" type="text/javascript"></script>
 
     <!-- Bring In Bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+
+
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
     <!-- Application Styles and Scripts -->
     <link rel="stylesheet" href="/jsbootcamp.css">
     <script src="/contactlist.js"></script>
     <script>
+      
+      function sortResults(array, prop, asc) {
+        array = array.sort(function(a, b) {
+            if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+            else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
+        });
+      }
+
+      
+ 
+    
       $(document).ready(function() {
         makeContactRowClickable();
+        $.getJSON( "gjson", function(data) {
+          sortResults (data, "firstName", true);
+          //var source = document.getElementById("sort-template").textContent;
+          //var template = Handlebars.compile(source);
+          //var wrapper  = {objects: an_array};
+
+          var source   = $("#sort-template").html();
+          var template = Handlebars.compile(source);
+          $("body").append( template(data));
+
+         // var html = template(data);
+
+          //var html = template(data[0]);
+         // $('#tester').append(html);
+          //document.body.innerHTML = html;
+          /*var source   = $("#sort-template").html();
+          var template = Handlebars.compile(source);
+          var context = data;
+          var html    = template(context);*/
+          console.log("success");
+          console.log(data[1].lastName);
+        });
+        
       });
     </script>
+    <script id="sort-template" type="text/x-handlebars-template">
+       {{#each .}}
+          
+          <ul data-contact-guid="{{guid}}">
+            <li>{{lastName}}</li>
+            <li>{{firstName}}</li>
+            <li>{{nickname}}</li>
+            <li>{{company}}</li>
+          </ul>
+         
+      {{/each}}
+    </script>
+
   </head>
 
   <body>
+    <div id='header'>
+      <h1>Code Fellows Contact Manager</h1>
+    </div>
     <form action='/contactSearch' method='post'>
       <input class='find' type='text' name='term'  />
       
@@ -34,26 +89,23 @@
       <input class='submit' type='submit' value='Find'  />
 
     </form>
+    <a href = '/addPage'>Add customer</a>
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Last Name</th>
-          <th>First Name</th>
-          <th>Nickname</th>
-          <th>Company</th>
+          <th>Last Name<i class="fa fa-wheelchair"></i></th>
+          <th>First Name<i class="fa fa-wheelchair"></i></th>
+          <th>Nickname<i class="fa fa-wheelchair"></i></th>
+          <th>Company<i class="fa fa-wheelchair"></i></th>
         </tr>
       <thead>
 
       <tbody>
-        {{#each contacts}}
-          <tr data-contact-guid="{{guid}}">
-            <td>{{lastName}}</td>
-            <td>{{firstName}}</td>
-            <td>{{nickname}}</td>
-            <td>{{company}}</td>
-          </tr>
-        {{/each}}
+        
+
       </tbody>
     </table>
+    <div id="tester">
+    </div>
   </body>
 </html>

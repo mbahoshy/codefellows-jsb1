@@ -35,7 +35,7 @@ var db = [
     firstName: "Marjorie",
     lastName: "Simpson",
     nickname: "Marge",
-    company: "",
+    company: "n",
     email: "funmom1337@hotmail.com"
   },
   {
@@ -52,7 +52,7 @@ var db = [
     lastName: "Burns",
     nickname: "Monty",
     company: "Springfield Nuclear Powerplant",
-    email: ""
+    email: "n"
   },
   {
     guid: "0e33a96d-a16c-43e2-be5e-1698393e6dbb",
@@ -73,19 +73,58 @@ app.get("/", function(req, res) {
 });
 
 app.get("/contacts", function(req, res) {
-  res.render("contactlist", {contacts: db});
+
+      /*
+      var sortby = req.param("sortby");
+
+
+      function sortResults(prop, asc) {
+        db = db.sort(function(a, b) {
+            if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+            else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
+        });
+      }
+
+      sortResults (sortby, true);
+      */
+
+  res.render("contactlist");
 });
+
+app.get("/addPage", function(req, res) {
+  res.render("addPage");
+});
+
+app.post("/add", function(req, res) {
+  var firstNameN = req.body.firstName;
+  var lastNameN = req.body.lastName;
+  var nicknameN = req.body.nickname;
+  var companyN = req.body.company;
+  var emailN = req.body.email;
+
+  db.push({guid:"hello", firstName:firstNameN, lastName:lastNameN, nickname:nicknameN, company:companyN, email:emailN});
+
+  res.redirect("/contacts");
+ 
+});
+
+
 
 app.post("/contactSearch", function(req, res){
   var term = req.body.term;
   var condition = req.body.condition;
   
-  record = _.findWhere(db, {[condition]: term});
+  // use .find
+  //record = _.findWhere(db, {condition: term});
   if (record) {
   console.log("found");  
   }
   
 
+});
+
+app.get("/gjson", function (req, res){
+  res.send(db);
 });
 
 app.get("/contacts/:guid", function(req, res) {
