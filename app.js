@@ -73,21 +73,6 @@ app.get("/", function(req, res) {
 });
 
 app.get("/contacts", function(req, res) {
-
-      /*
-      var sortby = req.param("sortby");
-
-
-      function sortResults(prop, asc) {
-        db = db.sort(function(a, b) {
-            if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
-            else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
-        });
-      }
-
-      sortResults (sortby, true);
-      */
-
   res.render("contactlist");
 });
 
@@ -162,3 +147,29 @@ app.post("/contacts/:guid", function(req, res) {
 var port = process.env.PORT || 3000;
 app.listen(port);
 console.log("The server is now listening on port %s", port);
+
+/*
+var isPrime = function(i) {
+    if(i%2 === 1) {
+        return false;
+    } else {
+        return true;
+    }
+
+};
+*/
+
+var isPrime = function(n) {
+ if (isNaN(n) || !isFinite(n) || n%1 || n<2) return false; 
+ if (n%2==0) return (n==2);
+ if (n%3==0) return (n==3);
+ var m=Math.sqrt(n);
+ for (var i=5;i<=m;i+=6) {
+  if (n%i==0)     return false;
+  if (n%(i+2)==0) return false;
+ }
+ return true;
+}
+
+
+exports.isPrime = isPrime;

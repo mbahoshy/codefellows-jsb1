@@ -1,0 +1,58 @@
+<html>
+<head>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' href=''
+</head>
+<body>
+	<div id='mocha'></div>
+	<script src='mocha.js'></script>
+	<script src='expect.js'></script>
+	<script src='../public/contactlist.js'></script>
+
+	<script>
+		mocha.ui('bdd');
+		mocha.reporter('html');
+	</script>
+
+	<script>
+		/*
+		testMod = require('./app');
+
+
+		function ok(expr, msg) {
+		  if (!expr) throw new Error(msg);
+		}
+
+		describe("isPrime()", function() {
+		    it("should return false when i is null", function() {
+		        ok(testMod.isPrime(null) === false,
+		           "isPrime did not return a boolean false");
+		    });
+		});
+
+		*/
+	
+		describe("My test", function() {
+			it("should be ok", function () {
+				expect(1).to.be.ok();
+			});
+
+			it("should fail", function() {
+				expect(false).to.be.ok();
+			});
+
+		});
+
+		if(makeContactRowClickable)
+			console.log("I found it");
+
+	</script>
+
+	<script>
+		if (window.mochaPhantomJS) {mochaPhantomJS.run();}
+		else {mocha.run();}
+	</script>
+
+
+</body>
+</html>
