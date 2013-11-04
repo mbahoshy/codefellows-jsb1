@@ -39,19 +39,16 @@ module.exports = function(grunt) {
         files: ['Gruntfile.js', 'public/contactlist.js', 'app.js'],
         tasks: ['jshint'],
         options: {
-          spawn: false,
+          // Start another live reload server on port 1337
           livereload: true,
         },
-        css: {
-          files: ['public/**/*.css'],
-
-        },
       },
+      css: {
+        files: ['public/*.css'],
+      },
+
     },
 
-    options: {
-      
-    },
 
 
 
