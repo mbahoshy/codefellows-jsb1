@@ -34,6 +34,24 @@ module.exports = function(grunt) {
       }
     },
 
+    watch: {
+      scripts: {
+        files: ['Gruntfile.js', 'public/contactlist.js', 'app,js'],
+        tasks: ['jshint'],
+        options: {
+          spawn: false,
+          livereload: true,
+        },
+        css: {
+          files: ['public/scss/*.scss'],
+          tasks: ['compass'],
+        },
+      },
+    },
+
+    options: {
+      
+    },
 
 
 
@@ -48,6 +66,6 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['jshint', 'bower_install', 'copy']);
-  grunt.registerTask('test', ['mocha_phantomjs']);
+  //grunt.registerTask('test', ['mocha_phantomjs']);
 
 };
