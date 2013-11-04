@@ -43,8 +43,8 @@ module.exports = function(grunt) {
           livereload: true,
         },
         css: {
-          files: ['public/scss/*.scss'],
-          tasks: ['compass'],
+          files: ['public/**/*.css'],
+
         },
       },
     },
