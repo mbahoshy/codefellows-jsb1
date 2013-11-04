@@ -34,6 +34,7 @@
     "start": "node app"
   },
   "devDependencies": {
-    "zombie": "~2.0.0-alpha24"
+    "zombie": "~2.0.0-alpha24",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }

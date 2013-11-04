@@ -44,6 +44,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-bower-install-task");
   grunt.loadNpmTasks("grunt-mocha-phantomjs");
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
   grunt.registerTask('default', ['jshint', 'bower_install', 'copy']);
