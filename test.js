@@ -1,17 +1,70 @@
+var app = require('./app');
+var expect = require('expect.js'),
+Browser = require('zombie'),
+browser = new Browser();
+
+describe('Loads pages', function(){
+
+    it('Google.com', function(done){
+
+        browser.visit("http://127.0.0.1:3000/contacts", function () {
+            expect(browser.text("title")).to.equal('Code Fellows Contact Manager');
+            done();
+        });
+    });
+
+	it('addCustomer', function(){
+		browser.visit("http://localhost:3000/contacts", function () {
+		  assert.ok(browser.success);
+
+			browser.clickLink("Add Customer", function(e, browser, status) {
+			   expect(browser.text("title")).to.equal('Code Fellows Contact Add');
+			});
+
+
+		  if (browser.error )
+		    console.dir("Errors reported:", browser.errors);
+
+		});
+
+
+
+		
+
+	});    
+
+});
 
 
 
 
+/*
 
 
+process.env.NODE_ENV = 'test';
+var app = require('./app');
+var assert = require('assert');
+var Browser = require('zombie');
+var http = require('http');
 
+describe('contact page', function() {
+ 
+	before(function() {
+	this.server = http.createServer(app).listen(3000);
+	this.browser = new Browser({ site: 'http://localhost:3000' });
+	});
+	 
+	// load the contact page before each test
+	beforeEach(function(done) {
+	this.browser.visit('/contacts', done);
+	});
+	 
+	it('should show contact a form', function() {
+	assert.ok(this.browser.success);
+	assert.equal(this.browser.text('button'), 'Submit');
+	});
 
-testMod = require('./app');
-
-
-function ok(expr, msg) {
-  if (!expr) throw new Error(msg);
-}
+});
 
 describe("isPrime()", function() {
     it("should return false when i is null", function() {
@@ -30,11 +83,29 @@ describe("isPrime()", function() {
     });
 });
 
+describe('testMod', function(){
+	before(function() {
+		testMod.app.listen(3000);
+	});
+	
+	it (function(done){
+	  request.get('localhost:3000/contacts').end(function(res){
+	  	expect(res).to.exist;
+	    done();	  	
+	    //TODO check that response is okay
+	  });
+
+	});
+
+});
 
 
+testMod = require('./app');
 
+function ok(expr, msg) {
+  if (!expr) throw new Error(msg);
+}
 
-/*
 describe('testMod', function(){
 	before(function() {
 		exports.myApp.listen(3000);

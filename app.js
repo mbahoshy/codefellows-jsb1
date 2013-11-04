@@ -172,4 +172,8 @@ var isPrime = function(n) {
 }
 
 
-exports.isPrime = isPrime;
+module.exports = app;
+
+
+//exports.isPrime = isPrime;
+//exports.myApp = app;
