@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
      jshint: {
-        files: ['Gruntfile.js', 'public/contactlist.js', 'app,js'],
+        files: ['Gruntfile.js', 'public/contactlist.js', 'app.js'],
         options: {
           // options here to override JSHint defaults
           globals: {
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['Gruntfile.js', 'public/contactlist.js', 'app,js'],
+        files: ['Gruntfile.js', 'public/contactlist.js', 'app.js'],
         tasks: ['jshint'],
         options: {
           spawn: false,
